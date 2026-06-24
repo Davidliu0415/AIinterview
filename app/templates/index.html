@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Java 面试官</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="/static/js/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">AI Java 面试官</a>
+      <nav class="nav">
+        <a class="nav-link active" href="/">面试</a>
+        <a class="nav-link" href="/history">历史</a>
+      </nav>
+    </header>
+
+    <main class="workspace">
+      <aside class="panel resume-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Resume</p>
+            <h1>候选人画像</h1>
+          </div>
+          <span id="modelBadge" class="badge">DeepSeek</span>
+        </div>
+
+        <form id="uploadForm" class="upload-box">
+          <input id="resumeFile" name="file" type="file" accept=".pdf,.docx" />
+          <label for="resumeFile" class="file-label">
+            <i data-lucide="file-up"></i>
+            <span id="fileName">选择 PDF / DOCX</span>
+          </label>
+          <button id="uploadBtn" class="btn primary" type="submit">
+            <i data-lucide="upload"></i>
+            <span>分析简历</span>
+          </button>
+        </form>
+
+        <section id="analysisPanel" class="analysis-panel">
+          <div class="empty-state">暂无画像</div>
+        </section>
+
+        <div class="start-row">
+          <span class="level-pill">校招 / 初级 Java 后端</span>
+          <button id="startInterviewBtn" class="btn accent" type="button" disabled>
+            <i data-lucide="play"></i>
+            <span>开始面试</span>
+          </button>
+        </div>
+      </aside>
+
+      <section class="panel interview-panel">
+        <div class="panel-head interview-head">
+          <div>
+            <p class="eyebrow">Interview</p>
+            <h2>模拟面试</h2>
+          </div>
+          <div class="toolbar">
+            <label class="switch">
+              <input id="speakToggle" type="checkbox" checked />
+              <span></span>
+              <b>朗读</b>
+            </label>
+            <button id="voiceBtn" class="icon-btn" type="button" title="语音输入">
+              <i data-lucide="mic"></i>
+            </button>
+            <button id="finishBtn" class="icon-btn danger" type="button" title="结束面试" disabled>
+              <i data-lucide="square"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="chat" class="chat">
+          <div class="empty-state">等待面试</div>
+        </div>
+
+        <section id="summaryPanel" class="summary-panel hidden"></section>
+
+        <form id="answerForm" class="composer">
+          <textarea id="answerInput" rows="3" placeholder="输入回答" disabled></textarea>
+          <button id="sendBtn" class="btn primary send-btn" type="submit" disabled>
+            <i data-lucide="send"></i>
+            <span>发送</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

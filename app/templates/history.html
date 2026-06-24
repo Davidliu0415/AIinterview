@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>历史记录 - AI Java 面试官</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="/static/js/history.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">AI Java 面试官</a>
+      <nav class="nav">
+        <a class="nav-link" href="/">面试</a>
+        <a class="nav-link active" href="/history">历史</a>
+      </nav>
+    </header>
+
+    <main class="history-layout">
+      <section class="panel list-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Records</p>
+            <h1>历史记录</h1>
+          </div>
+          <button id="refreshBtn" class="icon-btn" type="button" title="刷新">
+            <i data-lucide="refresh-cw"></i>
+          </button>
+        </div>
+        <div class="split-list">
+          <div>
+            <h2 class="list-title">简历</h2>
+            <div id="resumeList" class="record-list"></div>
+          </div>
+          <div>
+            <h2 class="list-title">面试</h2>
+            <div id="interviewList" class="record-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel detail-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Detail</p>
+            <h2 id="detailTitle">详情</h2>
+          </div>
+        </div>
+        <div id="detailBody" class="detail-body">
+          <div class="empty-state">暂无详情</div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
